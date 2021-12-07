@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import Splash from "./Splash.jsx"
 
 const App = () => {
-    return (
-        <div>initial</div>
-    )
-}
+  return <Splash />;
+};
 
-export default App
+export default App;
