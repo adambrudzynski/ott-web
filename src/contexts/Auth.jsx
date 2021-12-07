@@ -20,24 +20,7 @@ const Auth = ({ children }) => {
         Name: uuid(),
       },
     });
-    // console.log(data);
-
-    // const response = await fetch(
-    //   "https://thebetter.bsgroup.eu/Authorization/SignIn",
-    //   {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({
-    //       device: {
-    //         PlatformCode: "WEB",
-    //         Name: uuid(),
-    //       },
-    //     }),
-    //   }
-    // );
-    // const { User, AuthorizationToken } = await response.json();
+    
     localStorage.setItem("token", AuthorizationToken.Token);
     setUser(User);
   };

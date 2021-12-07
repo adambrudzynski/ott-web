@@ -8,8 +8,9 @@ axios.defaults.baseURL = "https://thebetter.bsgroup.eu";
 axios.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
-    config.headers.authorization = `Bearer ${token}`;
-
+    if (token) {
+      config.headers.authorization = `Bearer ${token}`;
+    }
     return config;
   },
   (error) => {
