@@ -1,8 +1,13 @@
 import React from "react";
-import Splash from "./Splash.jsx"
+import Auth from "../contexts/Auth.jsx";
+import Splash from "./Splash.jsx";
 
 const App = () => {
-  return <Splash />;
+  return (
+    <Auth>
+      <Splash />
+    </Auth>
+  );
 };
 
 export default App;
