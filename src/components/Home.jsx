@@ -21,6 +21,22 @@ const Tile = ({ entity }) => {
   );
 };
 
+const List = ({ data, loading, error }) => {
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error!</p>;
+  return (
+    <>
+      <h2 className="text-3xl mx-4">List 1</h2>
+      <div className="flex flex-col md:flex-row md:flex-wrap w-full px-2">
+        {data &&
+          data.Entities.map((entity) => (
+            <Tile entity={entity} key={entity.Id} />
+          ))}
+      </div>
+    </>
+  );
+};
+
 const Home = () => {
   const [{ data, loading, error }, execute] = useAxios(
     {
@@ -31,6 +47,7 @@ const Home = () => {
   );
 
   useEffect(() => {
+    console.log(data);
     execute({
       data: {
         MediaListId: 3,
@@ -43,20 +60,7 @@ const Home = () => {
     });
   }, []);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error!</p>;
-
-  return (
-    <>
-      <h2 className="text-3xl mx-4">List 1</h2>
-      <div className="flex flex-col md:flex-row md:flex-wrap w-full px-2">
-        {data &&
-          data.Entities.map((entity) => (
-            <Tile entity={entity} key={entity.Id} />
-          ))}
-      </div>
-    </>
-  );
+  return <List data={data} loading={loading} error={error} />;
 };
 
 export default Home;
