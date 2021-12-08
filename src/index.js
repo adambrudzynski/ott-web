@@ -18,4 +18,18 @@ axios.interceptors.request.use(
   }
 );
 
+axios.interceptors.response.use(
+  function (response) {
+    return response;
+  },
+  function (error) {
+    if (error?.response?.data.MessageKey === "TOKEN_EXPIRED") {
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      window.location.replace("/login");
+    }
+    return Promise.reject(error);
+  }
+);
+
 ReactDOM.render(<App />, document.getElementById("app"));
