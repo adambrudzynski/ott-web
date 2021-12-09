@@ -26,6 +26,10 @@ const Player = () => {
   }, [user]);
 
   if (loading) return <p>Loading...</p>;
+  if (error?.response?.status === 403 && user?.UserName !== "Anonymous")
+    return (
+      <p>You do not have a necessary subscription to view this content. </p>
+    );
   if (error) return <p>Error!</p>;
 
   return (
