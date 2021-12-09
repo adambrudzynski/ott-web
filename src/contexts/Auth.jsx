@@ -15,13 +15,15 @@ const Auth = ({ children }) => {
   }, []);
 
   const signIn = async (username, password, callback) => {
+    const payload = { device: { PlatformCode: "WEB", Name: uuid() } };
+    if (username && password) {
+      payload.Username = username;
+      payload.Password = password;
+    }
     const {
       data: { User, AuthorizationToken },
     } = await axios.post("/Authorization/SignIn", {
-      device: {
-        PlatformCode: "WEB",
-        Name: uuid(),
-      },
+      ...payload,
     });
 
     localStorage.setItem("token", AuthorizationToken.Token);

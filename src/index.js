@@ -23,7 +23,10 @@ axios.interceptors.response.use(
     return response;
   },
   function (error) {
-    if (error?.response?.data.MessageKey === "TOKEN_EXPIRED") {
+    if (
+      error?.response?.data.MessageKey === "TOKEN_EXPIRED" ||
+      error?.response?.data.MessageKey === "UNAUTHORIZED"
+    ) {
       localStorage.removeItem("token");
       localStorage.removeItem("user");
       window.location.replace("/login");
