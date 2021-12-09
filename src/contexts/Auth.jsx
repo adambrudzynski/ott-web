@@ -50,9 +50,15 @@ const Auth = ({ children }) => {
       });
     }
   };
+  const logOut = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    setUser(undefined);
+    setIsAuth(false);
+  };
 
   return (
-    <UserContext.Provider value={{ user, signIn, isAuth }}>
+    <UserContext.Provider value={{ user, signIn, logOut, isAuth }}>
       {children}
     </UserContext.Provider>
   );

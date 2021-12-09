@@ -17,7 +17,7 @@ const Splash = ({ children }) => {
       <p className="text-gray-600">Video playback application.</p>
       <button
         type="button"
-        className="w-full md:w-2/4 xl:w-1/4 p1 my-4 mx-auto rounded-sm border border-transparent focus:outline-none focus:ring-2 focus:border-transparent bg-gray-600 hover:bg-gray-700"
+        className="w-full md:w-2/4 xl:w-1/4 p-1 my-4 mx-auto rounded-sm border border-transparent focus:outline-none focus:ring-2 focus:border-transparent bg-gray-600 hover:bg-gray-700"
         onClick={loginAnonymusly}
       >
         Browse as a guest

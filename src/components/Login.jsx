@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router";
 import { UserContext } from "../contexts/Auth.jsx";
+import Layout from "./Common/Layout.jsx";
 import Splash from "./Splash.jsx";
 
 const Input = ({ label, name, type, required = true }) => (
@@ -61,7 +62,7 @@ const RequireAuth = ({ children }) => {
     return <Navigate to="/login" state={{ from: location }} />;
   }
 
-  return children;
+  return <Layout>{children}</Layout>;
 };
 
 export { RequireAuth };

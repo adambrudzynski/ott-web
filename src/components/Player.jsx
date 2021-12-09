@@ -3,6 +3,7 @@ import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router";
 import ReactPlayer from "react-player";
 import { UserContext } from "../contexts/Auth.jsx";
+import Error from "./Common/Error.jsx";
 
 const Player = () => {
   const { user } = useContext(UserContext);
@@ -28,16 +29,25 @@ const Player = () => {
   if (loading) return <p>Loading...</p>;
   if (error?.response?.status === 403 && user?.UserName !== "Anonymous")
     return (
-      <p>You do not have a necessary subscription to view this content. </p>
+      <Error
+        message={
+          "You do not have a necessary subscription to view this content."
+        }
+      />
     );
-  if (error) return <p>Error!</p>;
+  if (error) return <Error />;
 
   return (
     <div className="px-4">
       <h2 className="text-3xl">{data?.Title}</h2>
       <p className="text-gray-300">{data?.Description}</p>
       {data?.ContentUrl ? (
-        <ReactPlayer controls={true} playing={true} url={data?.ContentUrl} />
+        <ReactPlayer
+          controls={true}
+          playing={true}
+          url={data?.ContentUrl}
+          className="bg-gray-500 w-full md:w-2/3 xl:w-1/2"
+        />
       ) : (
         <p>Content is not avaible.</p>
       )}

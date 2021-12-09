@@ -1,6 +1,7 @@
 import useAxios from "axios-hooks";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import Error from "./Common/Error.jsx";
 
 const Tile = ({ entity }) => {
   const cover = entity.Images.find((image) => image.ImageTypeCode === "FRAME");
@@ -15,7 +16,9 @@ const Tile = ({ entity }) => {
               className="flex-shrink-0 w-64 h-36 rounded object-cover"
             />
           ) : (
-            <div className="flex-shrink-0  w-64 h-36 rounded bg-gray-500 text-gray-400 text-center">Preview not avaible</div>
+            <div className="flex-shrink-0  w-64 h-36 rounded bg-gray-500 text-gray-400 text-center">
+              Preview not avaible
+            </div>
           )}
         </>
         <p className="m-2">{entity.Title}</p>
@@ -62,7 +65,7 @@ const List = ({ title, mediaListId }) => {
     });
   }, []);
 
-  if (error) return <p>Error!</p>;
+  if (error) return <Error />;
   return (
     <>
       <h2 className="text-3xl mx-4">{title}</h2>
