@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import Auth from "../contexts/Auth.jsx";
 import Home from "./Home.jsx";
 import Login, { RequireAuth } from "./Login.jsx";
@@ -9,6 +10,7 @@ import Splash from "./Splash.jsx";
 const App = () => {
   return (
     <Auth>
+      <Toaster />
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />

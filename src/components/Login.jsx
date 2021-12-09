@@ -7,7 +7,7 @@ const Input = ({ label, name, type, required = true }) => (
   <label className="w-full my-1 text-sm">
     {label}
     <input
-      className="w-full p1 my-1 rounded-sm border border-transparent focus:outline-none focus:ring-2 focus:border-transparent bg-gray-800 focus:bg-gray-700"
+      className="w-full p-1 my-1 rounded-sm border border-transparent focus:outline-none focus:ring-2 focus:border-transparent bg-gray-800 focus:bg-gray-700"
       required={required}
       name={name}
       type={type}
@@ -43,7 +43,7 @@ const Login = () => {
           <Input label=" Password:" name="password" type="password" />
           <button
             type="submit"
-            className="w-full p1 my-1 rounded-sm border border-transparent focus:outline-none focus:ring-2 focus:border-transparent bg-purple-600 hover:bg-purple-700"
+            className="w-full p-1 my-1 rounded-sm border border-transparent focus:outline-none focus:ring-2 focus:border-transparent bg-purple-600 hover:bg-purple-700"
           >
             Login
           </button>
